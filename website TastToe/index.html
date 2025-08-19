@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Broodjeszaak TastToe in Deurne - Heerlijke verse broodjes, panini's, hamburgers en salades. Bestel eenvoudig online of kom genieten in onze gezellige zaak of op ons terras."
+    />
+    <meta
+      name="keywords"
+      content="broodjes, panini, hamburgers, salades, broodjeszaak Deurne, TastToe, bestellen, lunch, terras"
+    />
+    <meta name="author" content="TastToe Broodjeszaak" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Broodjeszaak TastToe</title>
+  </head>
+  <body>
+    <header>
+      <h1>Welkom bij broodjeszaak TastToe</h1>
+      <p><b>Heerlijke verse broodjes, Panini's, hamburgers en salades</b></p>
+      <img
+        src="pictures/inkom.jpg"
+        alt="inkom van de broodjeszaak"
+        width="800"
+        height="600"
+      />
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#over-ons">Over ons</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#bestel-online">Bestel online</a></li>
+      </ul>
+    </nav>
+
+    <br /><br />
+
+    <h2 id="over-ons">Over ons</h2>
+    <p>Welkom bij TastToe. <b>De broodjeszaak</b> te Deurne Eksterlaar.</p>
+    <p>Alle bestellingen voor 10u geplaatst kunnen om 12u afgehaald worden.</p>
+
+    <figure>
+      <img
+        src="pictures/int1.jpg"
+        alt="onze gezellige broodjeszaak"
+        height="320"
+        width="480"
+      />
+      <img
+        src="pictures/int2.jpg"
+        alt="ons gezellig interieur"
+        width="480"
+        height="320"
+      />
+      <figcaption>
+        <b>Wij ontvangen U graag in onze gezellige zaak</b>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="pictures/terras.jpg"
+        alt="ons terrasje"
+        height="320"
+        width="480"
+      />
+      <figcaption><b>Of kom heerlijk genieten op ons terras</b></figcaption>
+    </figure>
+
+    <br /><br />
+
+    <h2 id="menu">Ons assortiment</h2>
+    <figure>
+      <img
+        src="pictures/menu1.jpg"
+        alt="menukaart-1"
+        height="600"
+        width="800"
+      />
+      <img
+        src="pictures/menu-2.jpg"
+        alt="menukaart-2"
+        height="600"
+        width="800"
+      />
+      <figcaption>Neem een kijkje op onze menukaart</figcaption>
+    </figure>
+
+    <br /><br />
+
+    <h2 id="bestel-online">Bestel online</h2>
+
+    <form action="/bestelling" method="post">
+      <label for="naam">Naam:</label><br />
+      <input type="text" id="naam" name="naam" required /><br /><br />
+
+      <label for="email">E-mail:</label><br />
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <h3>Kies uw broodjes:</h3>
+
+      <table border="1" cellpadding="8" cellspacing="0">
+        <tr>
+          <th>Selecteer</th>
+          <th>Broodje</th>
+          <th>Aantal</th>
+        </tr>
+
+        <tr>
+          <td>
+            <input type="checkbox" name="broodjes[]" value="panini_hamkaas" />
+          </td>
+          <td>Panini ham-kaas</td>
+          <td>
+            <input
+              type="number"
+              name="aantal_panini_hamkaas"
+              min="1"
+              max="10"
+              value="1"
+              disabled
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <input
+              type="checkbox"
+              name="broodjes[]"
+              value="panini_mozzarella"
+            />
+          </td>
+          <td>Panini tomaat-mozzarella</td>
+          <td>
+            <input
+              type="number"
+              name="aantal_panini_mozzarella"
+              min="1"
+              max="10"
+              value="1"
+              disabled
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <input
+              type="checkbox"
+              name="broodjes[]"
+              value="hamburger_classic"
+            />
+          </td>
+          <td>Hamburger Classic</td>
+          <td>
+            <input
+              type="number"
+              name="aantal_hamburger_classic"
+              min="1"
+              max="10"
+              value="1"
+              disabled
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <input type="checkbox" name="broodjes[]" value="salade_gezond" />
+          </td>
+          <td>Salade gezond</td>
+          <td>
+            <input
+              type="number"
+              name="aantal_salade_gezond"
+              min="1"
+              max="10"
+              value="1"
+              disabled
+            />
+          </td>
+        </tr>
+      </table>
+
+      <br />
+
+      <label for="opmerkingen">Opmerkingen:</label><br />
+      <textarea id="opmerkingen" name="opmerkingen"></textarea><br /><br />
+
+      <button type="submit">Bestelling plaatsen</button>
+    </form>
+
+    <script>
+      document
+        .querySelectorAll('input[type="checkbox"]')
+        .forEach(function (checkbox) {
+          checkbox.addEventListener("change", function () {
+            const numberInput = this.closest("tr").querySelector(
+              'input[type="number"]'
+            );
+            numberInput.disabled = !this.checked;
+          });
+        });
+    </script>
+  </body>
+</html>
